@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Prezentácia diel</h2>
+    <div id="gallery-items" class="row row-cols-1 row-cols-md-3 g-4" hx-get="/galeria/items" hx-trigger="load">
+
+    </div>
+</div>
+
+<div class="container mt-4">
+    <h2 class="text-center">Nahratie vlastných súborov do fotogalérie</h2>
+
+    <!-- File upload form -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <input class="form-control" type="file" name="file" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Nahraj obrázok / fotku</button>
+    </form>
+
+    <!-- Gallery Section -->
+    <div id="gallery-items" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+        <!-- Gallery items will load here -->
+    </div>
+</div>
+{% endblock %}

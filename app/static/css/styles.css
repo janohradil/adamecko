@@ -1,7 +1,7 @@
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(215, 194, 145);
+    background-color: #d7c291;
 }
 
 .navbar-brand {
@@ -29,6 +29,16 @@ h1 {
 .card-title {
     font-weight: bold;
     color: #34495e;
+}
+
+.card {
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
 }
 
 .card-text {

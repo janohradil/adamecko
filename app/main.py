@@ -1,4 +1,6 @@
-from fastapi import FastAPI, Request, Depends
+import os
+import shutil
+from fastapi import FastAPI, File, Request, Depends, UploadFile
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -9,6 +11,9 @@ app = FastAPI()
 # Static and template directories
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
+
+# Directory where images are stored
+IMAGE_DIR = "app/static/img"
 
 # Dependency to provide the current year
 def get_year():
@@ -48,3 +53,24 @@ async def portfolio_items(request: Request, current_year: dict = Depends(get_yea
 async def contact_view(request: Request, current_year: dict = Depends(get_year)):
     """Return the contact page."""
     return templates.TemplateResponse("kontakt.html", {"request": request, **current_year})
+
+
+@app.get("/galeria", response_class=HTMLResponse)
+async def galeria(request: Request):
+    # List image file paths
+    images = os.listdir(IMAGE_DIR)
+    image_paths = [f"/static/img/{img}" for img in images if not 'orig' in img]
+    return templates.TemplateResponse("galeria.html", {"request": request, "images": image_paths})
+
+@app.get("/galeria/items", response_class=HTMLResponse)
+async def gallery_items(request: Request):
+    images = os.listdir(IMAGE_DIR)
+    image_paths = [f"/static/img/{img}" for img in images if not 'orig' in img]
+    return templates.TemplateResponse("partials/gallery_items.html", {"request": request, "images": image_paths})
+
+@app.post("/upload")
+async def upload_image(file: UploadFile = File(...)):
+    file_location = f"{IMAGE_DIR}/{file.filename}"
+    with open(file_location, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    return {"info": "Image uploaded successfully"}
