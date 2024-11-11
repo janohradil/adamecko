@@ -1,6 +1,7 @@
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
+    background-color: rgb(215, 194, 145);
 }
 
 .navbar-brand {
@@ -12,6 +13,19 @@ h1 {
     color: #2c3e50;
 }
 
+.form_inputs input,
+.form_inputs textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgb(237, 237, 209);
+}
+
+.card {background-color: rgb(237, 237, 209);}
+
 .card-title {
     font-weight: bold;
     color: #34495e;
@@ -22,10 +36,35 @@ h1 {
     color: #7f8c8d;
 }
 
+.container footer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+  
+.gallery img {
+    width: 300px;
+    height: 180px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
 footer {
     background-color: #343a40;
     color: #f8f9fa;
     font-size: 0.9rem;
+    flex-shrink: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 footer h5 {
