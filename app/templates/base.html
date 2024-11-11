@@ -10,17 +10,37 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Carpenter Portfolio</a>
-            <div class="navbar-nav">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/portfolio">Portfolio</a>
-                <a class="nav-link" href="/contact">Contact</a>
+        <div class="container">
+                <a class="navbar-brand" href="/">Tomáš Adamčík - rezbárčina</a>
+            <div class="row">
+                <div class="col-md-6 text-md-end">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="/">Domov</a>
+                        <a class="nav-link" href="/portfolio">Portfólio</a>
+                        <a class="nav-link" href="/contact">Kontakt</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
     <div class="container mt-4">
         {% block content %}{% endblock %}
     </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Kontaktné informácie</h5>
+                    <p>Email: tomas@example.com</p>
+                    <p>Phone: +123 456 7890</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; {{ year }} Tomáš Adamčík. Všetky práva vyhradené.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

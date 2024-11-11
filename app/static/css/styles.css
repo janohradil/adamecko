@@ -21,3 +21,18 @@ h1 {
     font-size: 1rem;
     color: #7f8c8d;
 }
+
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    font-size: 0.9rem;
+}
+
+footer h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+footer p {
+    margin-bottom: 0.3rem;
+}

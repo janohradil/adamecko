@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from datetime import datetime
 
 app = FastAPI()
 
@@ -11,7 +12,8 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request})
+    current_year = datetime.now().year
+    return templates.TemplateResponse("home.html", {"request": request, "year": current_year})
 
 @app.get("/portfolio", response_class=HTMLResponse)
 async def portfolio(request: Request):
@@ -21,9 +23,9 @@ async def portfolio(request: Request):
 async def portfolio_items(request: Request):
     # Example portfolio data
     portfolio_data = [
-        {"title": "Wooden Table", "description": "Handcrafted oak table."},
-        {"title": "Cabinet", "description": "Custom-made kitchen cabinet."},
-        {"title": "Deck", "description": "Outdoor deck made from cedar wood."}
+        {"title": "Drevený stôl", "description": "Ručne zhotovený drevený jedálenský stôl."},
+        {"title": "Kuchynské skrine", "description": "Na mieru zhotovené kuchynské skrine."},
+        {"title": "Oltár", "description": "Oltárny stôl na liturgické účely."}
     ]
     return templates.TemplateResponse("partials/portfolio_items.html", {"request": request, "portfolio_data": portfolio_data})
 
