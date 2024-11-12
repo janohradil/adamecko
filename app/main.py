@@ -49,9 +49,10 @@ async def portfolio_items(request: Request, current_year: dict = Depends(get_yea
     should be replaced with a database query.
     """
     portfolio_data = [
-        {"title": "Drevený stôl", "description": "Ručne zhotovený drevený jedálenský stôl."},
-        {"title": "Kuchynské skrine", "description": "Na mieru zhotovené kuchynské skrine."},
-        {"title": "Oltár", "description": "Oltárny stôl na liturgické účely."}
+        {"title": "Drevený stôl", "description": "Ručne zhotovený drevený jedálenský stôl.", "img": "/static/img/table.jpg"},
+        {"title": "Kuchynské skrine", "description": "Na mieru zhotovené kuchynské skrine.", "img": "/static/img/kuch_skrine.jpg"},
+        {"title": "Oltár", "description": "Oltárny stôl na liturgické účely.", "img": "/static/img/oltar.jpg"},
+        {"title": "Oltár", "description": "Anbóna na liturgické účely.", "img": "/static/img/anbona.jpg"}
     ]
     return templates.TemplateResponse("partials/portfolio_items.html", {"request": request, "portfolio_data": portfolio_data, **current_year})
 

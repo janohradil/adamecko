@@ -29,10 +29,10 @@ h1 {
     margin-bottom: 1rem;
     width: 100%;
     box-sizing: border-box;
-    background-color: rgb(237, 237, 209);
+    background-color: #ededd1;
 }
 
-.card {background-color: rgb(237, 237, 209);}
+.card {background-color: #ededd1;}
 
 .card-title {
     font-weight: bold;
