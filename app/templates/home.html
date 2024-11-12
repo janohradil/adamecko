@@ -3,8 +3,12 @@
 {% block content %}
 <div class="text-center">
     <h1>Vitajte na stránke rezbára Tomáša Adamčíka</h1>
-    <p>Prezrite si moje diela a neváhajte ma kontaktovať ohľadom rezbárčiny na mieru.</p>
+    <p >Prezrite si moje diela a neváhajte ma kontaktovať ohľadom rezbárčiny na mieru.
+    </p>
+    <div class="container mt-4" id="target" hx-get="/galeria" hx-target="this">
+        <img src="/static/img/preklik_na_foto.png" alt="Prekliknutie sa na fotky">
+    </div>
     <div class="gallery">
-      </div>
+    </div>
 </div>
 {% endblock %}

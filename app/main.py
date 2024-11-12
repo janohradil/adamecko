@@ -21,6 +21,13 @@ def get_year():
     current_year = datetime.now().year
     return {"year": current_year}
 
+def get_image_paths(exclude_substr: list[str]=['orig', '.png']):
+    # List image file paths
+    images = os.listdir(IMAGE_DIR)
+    cond = lambda img: not any(substr in img for substr in exclude_substr)
+    image_paths = [f"/static/img/{img}" for img in images if cond(img)]
+    return image_paths
+
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, current_year: dict = Depends(get_year)):
     return templates.TemplateResponse("home.html", {"request": request, **current_year})
@@ -59,13 +66,13 @@ async def contact_view(request: Request, current_year: dict = Depends(get_year))
 async def galeria(request: Request):
     # List image file paths
     images = os.listdir(IMAGE_DIR)
-    image_paths = [f"/static/img/{img}" for img in images if not 'orig' in img]
+    image_paths = get_image_paths()
     return templates.TemplateResponse("galeria.html", {"request": request, "images": image_paths})
 
 @app.get("/galeria/items", response_class=HTMLResponse)
 async def gallery_items(request: Request):
     images = os.listdir(IMAGE_DIR)
-    image_paths = [f"/static/img/{img}" for img in images if not 'orig' in img]
+    image_paths = get_image_paths()
     return templates.TemplateResponse("partials/gallery_items.html", {"request": request, "images": image_paths})
 
 @app.post("/upload")
