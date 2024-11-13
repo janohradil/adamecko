@@ -9,7 +9,7 @@ from datetime import datetime
 app = FastAPI()
 
 # Static and template directories
-app.mount("/static", StaticFiles(directory="https://hradil.fra1.digitaloceanspaces.com/adamecko/static"), name="static")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
 
 # Directory where images are stored
