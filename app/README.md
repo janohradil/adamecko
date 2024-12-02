@@ -1,2 +1,0 @@
-# adamecko
-fastapi webstite
