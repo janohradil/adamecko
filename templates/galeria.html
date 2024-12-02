@@ -10,7 +10,7 @@
     <div class="row">
         <!-- Gallery Thumbnails -->
         {% for image in images %}
-        {% if '_small' in image %}
+        {% if '.jpg' in image %}
         <div class="col-md-3 mb-4 gallery">
             <a href="{{ image | replace('_small', '') }}">
                 <img src="{{ image }}" class="img-thumbnail" alt="Image {{ loop.index }}">
