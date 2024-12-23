@@ -1,8 +1,8 @@
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #d7c291;
-    background-image: url('/static/img/tools.png');
+    background-color: #fdfbf7;
+    /* background-image: url('/static/img/tools.png'); */
     background-repeat: repeat;
 }
 
@@ -45,7 +45,12 @@ h3 {
     color: #68562e;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-bottom: 1.2rem;
 }
 
@@ -54,9 +59,10 @@ p {
 }
 
 .text-indent {
-    text-indent: 2em; /* Adjust the value as needed */
+    text-indent: 2em;
+    /* Adjust the value as needed */
 }
- 
+
 .form_inputs input,
 .form_inputs textarea {
     border: 1px solid #ccc;
@@ -68,7 +74,9 @@ p {
     background-color: #ededd1;
 }
 
-.card {background-color: #ededd1;}
+.card {
+    background-color: #ededd1;
+}
 
 .card-title {
     font-weight: bold;
@@ -112,7 +120,7 @@ p {
     flex-wrap: wrap;
     justify-content: center;
 }
-  
+
 .gallery img {
     width: 300px;
     height: 180px;
@@ -165,18 +173,28 @@ footer p {
 }
 
 main {
-    background-color: rgba(247, 239, 199, 0.1);
+    background-color: rgba(241, 240, 235, 0.1);
 }
 
 ul {
-    list-style-type: none;
+    /* list-style-type: none; */
     margin: 0;
     padding: 0;
+}
+
+main ul li {
+    padding: 5px;
+    margin: 0 1rem;
+}
+
+ul li {
+    text-align: left;
 }
 
 .transform {
     transition: transform 0.3s;
 }
+
 .rotate-180 {
     transform: rotate(180deg) scale(0.3);
 }
@@ -184,10 +202,12 @@ ul {
 .transition-enter-active {
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
+
 .transition-enter-start {
     opacity: 0;
     transform: translateY(-5px) scale(.7);
 }
+
 .transition-enter-end {
     opacity: 1;
     transform: translateY(0) scale(1);
