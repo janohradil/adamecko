@@ -155,6 +155,21 @@ footer p {
     margin-bottom: 0.3rem;
 }
 
+.footer-content ul li {
+    list-style-type: none;
+}
+
+.footer-content a {
+    color: #fdfbf7;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+    color: #e6d3b1;
+}
+
 .main-block {
     display: flex;
     flex-direction: column;

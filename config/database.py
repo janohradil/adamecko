@@ -6,7 +6,7 @@ client = MongoClient(f"mongodb+srv://{config("DB_USER")}:"
                      f"{config("DB_PASSWORD")}@{config("DB_HOST")}/"
                      f"jan?retryWrites=true&w=majority")
 
-db = client.hradil
+db = client.adamecko
  
 collection_name = db.odpovede
 
